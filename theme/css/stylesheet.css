@@ -181,32 +181,28 @@ article > h3 > a.category:hover{
   color:#2879d0;
   text-decoration: underline;
 }
-article > h6{
+article > .article_info{
+  margin: 15px 0;
+  border: solid 0 #ccc;
+  border-width: 1px 0;
+}
+article > .article_info > h6{
   margin:0;
   padding-top:6px;
 }
-article > h6:last-of-type{
-  border: 0 #ccc solid;
-  border-width: 1px 0;
-}
-article > h6 + h6{
+article > .article_info > h6 + h6{
   border-top: 1px #ccc dotted;
 }
-article > h6 span{
+article > .article_info > h6 span{
   margin:8px;
 }
-article >h6 a.tag{
+article > .article_info > h6 a.tag{
   padding:0 3px;
   margin:0 2px;
   border-radius: 5px;
   background: #ccc;
 }
-article > h6 + hr{
-  margin-top: 0;
-}
-article > hr:first-of-type{
-  margin:0;
-}
+
 article p{
   text-indent: 2em;
 }
