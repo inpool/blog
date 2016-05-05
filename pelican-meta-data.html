@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="/theme/css/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/theme/css/print.css" media="print">
+  <!--[if lt IE 9]>
+  <script src="/theme/js/html5.js"></script>
+  <![endif]-->
+  <title>英银坡'S BLOG</title>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <h1><a href="/">英银坡'S BLOG</a></h1>
+    </div>
+  </header>
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <section id="main-content"><article>
+	<h1>Pelican(二) —— 文件元数据</h1>
+	<hr/>
+	<h6>
+		<span>
+			<a href="/author/inpool.html">Inpool</a>
+		</span>
+		<span>
+			2016-05-03 20:51
+		</span>
+			<span>
+				分类：<a href="/category/pelican.html">pelican</a>
+			</span>
+	</h6>
+		<h6>
+			<span>标签：
+
+					<a href="/tag/pelican.html" class="tag">pelican</a>
+					<a href="/tag/blog.html" class="tag">blog</a>
+					<a href="/tag/restructuredtext.html" class="tag">reStructuredText</a>
+			</span>
+		</h6>
+	<hr/>
+	<div class="section" id="id1">
+<h2>基础</h2>
+<p>元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：</p>
+<ul class="simple">
+<li>标题(Title)</li>
+<li>发布时间(Date)</li>
+<li>最后修改时间(Modified)</li>
+<li>分类(Category)</li>
+<li>标签(Tags)</li>
+<li>标识(Slug)</li>
+<li>作者(Author/Authors)</li>
+<li>状态(Status)</li>
+<li>摘要(Summary)</li>
+</ul>
+<p>除了标题以外，其他的元数据都不是必须提供的，如果没有明确提供，Pelican会试图从其他方面猜测元数据的值。</p>
+<p>在RST中，元数据的语法如下:</p>
+<div class="highlight"><pre><span></span><span class="gh">这是标题</span>
+<span class="gh">########</span>
+
+<span class="nc">:date:</span> <span class="nf">2016-05-03 11:39</span>
+<span class="nc">:modified:</span> <span class="nf">2016-05-03 11:40</span>
+<span class="nc">:category:</span> <span class="nf">这是分类</span>
+<span class="nc">:tags:</span> <span class="nf">这是标签, 另一个标签</span>
+<span class="nc">:authors:</span> <span class="nf">作者, 另一个作者</span>
+<span class="nc">:summary:</span> <span class="nf">这是摘要，对于比较长的摘要，</span>
+          可以另起一行并缩进
+</pre></div>
+</div>
+<div class="section" id="title">
+<h2>标题(title)</h2>
+<p>标题就是一个文档的标题，不同的标记语言标识标题的方法不同，在RST中，第一个并且唯一的title元素被认为是整个文章的标题。</p>
+</div>
+<div class="section" id="date">
+<h2>发布时间(date)</h2>
+<p>该文章的发布时间，若没有提供，或明确提供为 <tt class="docutils literal">'fs'</tt> ，Pelican会试图从文件的修改时间提取。
+由于文件的修改时间可能会由于各种原因发生变化，最好手动指定。</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">我在windows 7下使用pelican 3.6.3，若不指定date，在转换为html文件时报错。</p>
+</div>
+</div>
+<div class="section" id="modified">
+<h2>最后修改时间(modified)</h2>
+<p>文档的最后修改时间。若不提供，则取发布时间的值，认为文章发布后没有修改过，并不在文章页面显示。</p>
+<p>若在文章修改后添加修改时间，或改动修改时间，使其值比原值大，则pelican会自动更新feed。</p>
+</div>
+<div class="section" id="category">
+<h2>分类(category)</h2>
+<p>表现为文章的分类。若不提供，则按照文章所在的文件夹分类，如果直接放在更目录，则为默认分类。默认分类可以在配置文件中指定。
+若不指定，默认为misc。</p>
+</div>
+<div class="section" id="tags">
+<h2>标签(tags)</h2>
+<p>表现为文章的标签。若不提供，则认为文章没有标签。</p>
+</div>
+<div class="section" id="author-authors">
+<h2>作者(author/authors)</h2>
+<p>文章的作者。若不提供，在从配置文件中提取。</p>
+</div>
+<div class="section" id="status">
+<h2>状态(status)</h2>
+<p>可取值为：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">取值</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>hidden</td>
+<td>不在页面显示该文章或页面</td>
+</tr>
+<tr><td>draft</td>
+<td>作为草稿，不会在博客中出现任何链接到草稿的链接</td>
+</tr>
+<tr><td>published</td>
+<td>正式发布状态。只有published状态的文章才会发布</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="summary">
+<h2>摘要(summary)</h2>
+<p>若不提供，则根据配置文件的设置 <tt class="docutils literal">SUMMARY_MAX_LENGTH</tt> 对文章的内容进行截取获得。</p>
+</div>
+<div class="section" id="id2">
+<h2>从文件名取元数据</h2>
+<p>如果能严格的按照我们自己设计的规范命名源文件，则可以通过设置 <tt class="docutils literal">FILENAME_METADATA</tt> 配置项，从
+文件名中提取元数据。例如：文件名为 <tt class="docutils literal"><span class="pre">20160503_pelican-meta-data.rst</span></tt> ，我们将 <tt class="docutils literal">FILENAME_METADATA</tt>
+设置为 <tt class="docutils literal"><span class="pre">'(?P&lt;date&gt;\d{4}-\d{2}-\d{2})_(?P&lt;slug&gt;.*)'</span></tt> ，则不需要在文章内按前面说的格式声明元数据
+信息，pelican会自动获取到data为 <tt class="docutils literal"><span class="pre">'2016-05-03'</span></tt> ，而slug为 <tt class="docutils literal"><span class="pre">'pelican-meta-data'</span></tt> 。</p>
+<p>采用这种方式时， <tt class="docutils literal">FILENAME_METADATA</tt> 的设置方法为正则表达式，需要一定的学习。</p>
+</div>
+
+	<h6>
+		<span>
+			<a href="/author/inpool.html">Inpool</a>
+		</span>
+		<span>
+			2016-05-03 20:51
+		</span>
+		<span>
+				<a href="/tag/pelican.html" class="tag">pelican</a>
+				<a href="/tag/blog.html" class="tag">blog</a>
+				<a href="/tag/restructuredtext.html" class="tag">reStructuredText</a>
+		</span>
+		<span>
+				分类：<a href="/category/pelican.html">pelican</a>
+		</span>
+	</h6>
+</article>
+</section>
+      <aside id="sidebar">
+        <div class="pannel">
+          <h6>关于我</h6>
+          <ul class="side-nav">
+            <li><a href="#" target="_blank">Another social link</a></li>
+            <li><a href="http://weibo.com/inpool" target="_blank">微博</a></li>
+          </ul>
+        </div>
+        <div class="pannel">
+          <h6>分类</h6>
+          <ul class="side-nav">
+            <li><a href="/category/pelican.html">pelican <sup>2</sup></a></li>
+          </ul>
+        </div>
+        <div class="pannel">
+          <h6>标签</h6>
+          <ul class="side-nav">
+            <li><a href="/tag/blog.html">blog <sup>2</sup></a></li>
+            <li><a href="/tag/pelican.html">pelican <sup>2</sup></a></li>
+            <li><a href="/tag/restructuredtext.html">reStructuredText <sup>1</sup></a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+    <hr/>
+    <footer>
+      <p>
+        Maintained by <a href="http://weibo.com/inpool">Inpool</a>.
+        Servered on <a href="https://pages.github.com">GitHub Pages</a>.
+        Generated by <a href="http://blog.getpelican.com">Pelican</a>.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

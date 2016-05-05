@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="/theme/css/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/theme/css/print.css" media="print">
+  <!--[if lt IE 9]>
+  <script src="/theme/js/html5.js"></script>
+  <![endif]-->
+  <title>英银坡'S BLOG</title>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <h1><a href="/">英银坡'S BLOG</a></h1>
+    </div>
+  </header>
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <section id="main-content"><article>
+	<h1>Pelican(一) —— 基本理解</h1>
+	<hr/>
+	<h6>
+		<span>
+			<a href="/author/inpool.html">Inpool</a>
+		</span>
+		<span>
+			2016-05-03 19:38
+		</span>
+			<span>
+				分类：<a href="/category/pelican.html">pelican</a>
+			</span>
+	</h6>
+		<h6>
+			<span>标签：
+
+					<a href="/tag/pelican.html" class="tag">pelican</a>
+					<a href="/tag/blog.html" class="tag">blog</a>
+			</span>
+		</h6>
+	<hr/>
+	<div class="section" id="id1">
+<h2>Pelican有什么用</h2>
+<p>Pelican是使用python语言开发的一个静态博客生成工具。默认支持reStructureText和HTML，也可以轻松支持Markdown。</p>
+<p>我们平时写博客，一般是通过在博客网站注册一个帐号，然后就可以在里面写博客了。还有一种情况，就是自己在虚拟主机、
+公有云或VPS上自己搭建一个博客程序。有了Pelican，现在我们又多了一种选择，就是在本地用reStructureText或Makedown
+把文章写好，通过Pelican生成静态的html文件，然后把生成的静态文件上传到互联网能访问的地方就可以了。</p>
+</div>
+<div class="section" id="id2">
+<h2>目录结构</h2>
+<p>我们使用Pelican写博客，首先要把源文件在本地写好，然后生成的静态文件也要有地方保存。
+在pelican中，通过 <tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt> 命令生成的文件夹中，如果不生成makefile和fabfile的话，目录结构如下:</p>
+<pre class="literal-block">
+drwxr-xr-x 1 inpool 197121    0 五月  3 17:06 content/
+-rwxr-xr-x 1 inpool 197121 2202 五月  3 10:50 develop_server.sh
+drwxr-xr-x 1 inpool 197121    0 五月  3 15:11 output/
+-rwxr-xr-x 1 inpool 197121  862 五月  3 10:50 pelicanconf.py
+-rwxr-xr-x 1 inpool 197121  508 五月  3 10:50 publishconf.py
+</pre>
+<p>各项的含义如下：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">文件/目录</th>
+<th class="head">用途</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>content/</td>
+<td>用于存放源文件</td>
+</tr>
+<tr><td>develop_server.sh</td>
+<td>用于启动简单的本地服务器</td>
+</tr>
+<tr><td>output/</td>
+<td>用于存放pelican命令生成的目标文件</td>
+</tr>
+<tr><td>pelicanconf.py</td>
+<td>pelican命令的配置文件</td>
+</tr>
+<tr><td>publishconf.py</td>
+<td>从文件名看 <em>应该</em> 是用于发布的配置文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>逻辑结构</h2>
+<p>对于一个博客，基本要素就是文章、分类、归档和标签。在一个利用pelican生成的博客中，包含的要素有：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">要素</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>文章(article)</td>
+<td>就是我们在博客上写的内容</td>
+</tr>
+<tr><td>页面(page)</td>
+<td>在博客中，除了我们写的内容，还会有一些其他的东西，比如博主的自我介绍、
+联系方式等，为了区别于正式的博客内容，pelican把它们传给页面</td>
+</tr>
+<tr><td>分类(category)</td>
+<td>就是分类，每个人的分类方法都会有一些不同，没什么好说的</td>
+</tr>
+<tr><td>归档(archive)</td>
+<td>按照时间先后，将同一段时间发布的文章放在一起</td>
+</tr>
+<tr><td>标签(tag)</td>
+<td>我们写的博文可能会设计不同的几个方面，那就可以把这些作为标签加入到博文
+的属性中。标签与分类的主要区别就是一个文章可以有多个标签，但只属于一个
+分类</td>
+</tr>
+<tr><td>作者(author)</td>
+<td>文章的作者，没什么好说的。</td>
+</tr>
+</tbody>
+</table>
+<p>其中，文章是一等公民，除页面外(页面是服务于整个博客的)，其他所有的元素都服务于文章，是文章的一种
+组织结构形态。</p>
+</div>
+<div class="section" id="id4">
+<h2>分类、归档、标签和作者</h2>
+<p>在pelican中，我们只要维护文章和页面就行了，分类、归档、标签和作者都是由pelican自动维护的。pelican会
+遍历所有的文章，在元数据中查询分类、标签和作者，并自动创建相应元素和静态页面。对于归档，pelican按照
+文章的标识的时间，自动编排出来。</p>
+</div>
+
+	<h6>
+		<span>
+			<a href="/author/inpool.html">Inpool</a>
+		</span>
+		<span>
+			2016-05-03 19:38
+		</span>
+		<span>
+				<a href="/tag/pelican.html" class="tag">pelican</a>
+				<a href="/tag/blog.html" class="tag">blog</a>
+		</span>
+		<span>
+				分类：<a href="/category/pelican.html">pelican</a>
+		</span>
+	</h6>
+</article>
+</section>
+      <aside id="sidebar">
+        <div class="pannel">
+          <h6>关于我</h6>
+          <ul class="side-nav">
+            <li><a href="#" target="_blank">Another social link</a></li>
+            <li><a href="http://weibo.com/inpool" target="_blank">微博</a></li>
+          </ul>
+        </div>
+        <div class="pannel">
+          <h6>分类</h6>
+          <ul class="side-nav">
+            <li><a href="/category/pelican.html">pelican <sup>2</sup></a></li>
+          </ul>
+        </div>
+        <div class="pannel">
+          <h6>标签</h6>
+          <ul class="side-nav">
+            <li><a href="/tag/blog.html">blog <sup>2</sup></a></li>
+            <li><a href="/tag/pelican.html">pelican <sup>2</sup></a></li>
+            <li><a href="/tag/restructuredtext.html">reStructuredText <sup>1</sup></a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+    <hr/>
+    <footer>
+      <p>
+        Maintained by <a href="http://weibo.com/inpool">Inpool</a>.
+        Servered on <a href="https://pages.github.com">GitHub Pages</a>.
+        Generated by <a href="http://blog.getpelican.com">Pelican</a>.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
