@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://inpool.xyz/" rel="alternate"></link><link href="http://inpool.xyz/feeds/pelican.atom.xml" rel="self"></link><id>http://inpool.xyz/</id><updated>2016-05-03T20:51:00+08:00</updated><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;基础&lt;/h2&gt;
+&lt;p&gt;元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;标题(Title)&lt;/li&gt;
+&lt;li&gt;发布时间(Date)&lt;/li&gt;
+&lt;li&gt;最后修改时间(Modified)&lt;/li&gt;
+&lt;li&gt;分类(Category)&lt;/li&gt;
+&lt;li&gt;标签(Tags)&lt;/li&gt;
+&lt;li&gt;标识(Slug)&lt;/li&gt;
+&lt;li&gt;作者(Author/Authors)&lt;/li&gt;
+&lt;li&gt;状态(Status)&lt;/li&gt;
+&lt;li&gt;摘要(Summary)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;除了标题以外，其他的元数据都不是必须提供的，如果没有明确提供，Pelican会试图从其他方面猜测元数据的值。&lt;/p&gt;
+&lt;p&gt;在RST中，元数据的语法如下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gh"&gt;这是标题&lt;/span&gt;
+&lt;span class="gh"&gt;########&lt;/span&gt;
+
+&lt;span class="nc"&gt;:date:&lt;/span&gt; &lt;span class="nf"&gt;2016-05-03 11:39&lt;/span&gt;
+&lt;span class="nc"&gt;:modified:&lt;/span&gt; &lt;span class="nf"&gt;2016-05-03 11:40&lt;/span&gt;
+&lt;span class="nc"&gt;:category:&lt;/span&gt; &lt;span class="nf"&gt;这是分类&lt;/span&gt;
+&lt;span class="nc"&gt;:tags:&lt;/span&gt; &lt;span class="nf"&gt;这是标签, 另一个标签&lt;/span&gt;
+&lt;span class="nc"&gt;:authors:&lt;/span&gt; &lt;span class="nf"&gt;作者, 另一个作者&lt;/span&gt;
+&lt;span class="nc"&gt;:summary:&lt;/span&gt; &lt;span class="nf"&gt;这是摘要，对于比较长的摘要，&lt;/span&gt;
+          可以另起一行并缩进
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="title"&gt;
+&lt;h2&gt;标题(title)&lt;/h2&gt;
+&lt;p&gt;标题就是一个文档的标题，不同的标记语言标识标题的方法不同，在RST中，第一个并且唯一的title元素被认为是整个文章的标题。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="date"&gt;
+&lt;h2&gt;发布时间(date)&lt;/h2&gt;
+&lt;p&gt;该文章的发布时间，若没有提供，或明确提供为 &lt;tt class="docutils literal"&gt;'fs'&lt;/tt&gt; ，Pelican会试图从文件的修改时间提取。
+由于文件的修改时间可能会由于各种原因发生变化，最好手动指定。&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;我在windows 7下使用pelican 3.6.3，若不指定date，在转换为html文件时报错。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="modified"&gt;
+&lt;h2&gt;最后修改时间(modified)&lt;/h2&gt;
+&lt;p&gt;文档的最后修改时间。若不提供，则取发布时间的值，认为文章发布后没有修改过，并不在文章页面显示。&lt;/p&gt;
+&lt;p&gt;若在文章修改后添加修改时间，或改动修改时间，使其值比原值大，则pelican会自动更新feed。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="category"&gt;
+&lt;h2&gt;分类(category)&lt;/h2&gt;
+&lt;p&gt;表现为文章的分类。若不提供，则按照文章所在的文件夹分类，如果直接放在更目录，则为默认分类。默认分类可以在配置文件中指定。
+若不指定，默认为misc。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="tags"&gt;
+&lt;h2&gt;标签(tags)&lt;/h2&gt;
+&lt;p&gt;表现为文章的标签。若不提供，则认为文章没有标签。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="author-authors"&gt;
+&lt;h2&gt;作者(author/authors)&lt;/h2&gt;
+&lt;p&gt;文章的作者。若不提供，在从配置文件中提取。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="status"&gt;
+&lt;h2&gt;状态(status)&lt;/h2&gt;
+&lt;p&gt;可取值为：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="82%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;取值&lt;/th&gt;
+&lt;th class="head"&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;hidden&lt;/td&gt;
+&lt;td&gt;不在页面显示该文章或页面&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;draft&lt;/td&gt;
+&lt;td&gt;作为草稿，不会在博客中出现任何链接到草稿的链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;published&lt;/td&gt;
+&lt;td&gt;正式发布状态。只有published状态的文章才会发布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;摘要(summary)&lt;/h2&gt;
+&lt;p&gt;若不提供，则根据配置文件的设置 &lt;tt class="docutils literal"&gt;SUMMARY_MAX_LENGTH&lt;/tt&gt; 对文章的内容进行截取获得。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;从文件名取元数据&lt;/h2&gt;
+&lt;p&gt;如果能严格的按照我们自己设计的规范命名源文件，则可以通过设置 &lt;tt class="docutils literal"&gt;FILENAME_METADATA&lt;/tt&gt; 配置项，从
+文件名中提取元数据。例如：文件名为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;20160503_pelican-meta-data.rst&lt;/span&gt;&lt;/tt&gt; ，我们将 &lt;tt class="docutils literal"&gt;FILENAME_METADATA&lt;/tt&gt;
+设置为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'(?P&amp;lt;date&amp;gt;\d{4}-\d{2}-\d{2})_(?P&amp;lt;slug&amp;gt;.*)'&lt;/span&gt;&lt;/tt&gt; ，则不需要在文章内按前面说的格式声明元数据
+信息，pelican会自动获取到data为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'2016-05-03'&lt;/span&gt;&lt;/tt&gt; ，而slug为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'pelican-meta-data'&lt;/span&gt;&lt;/tt&gt; 。&lt;/p&gt;
+&lt;p&gt;采用这种方式时， &lt;tt class="docutils literal"&gt;FILENAME_METADATA&lt;/tt&gt; 的设置方法为正则表达式，需要一定的学习。&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="pelican"></category><category term="blog"></category><category term="reStructuredText"></category></entry><entry><title>Pelican(一) —— 基本理解</title><link href="http://inpool.xyz/pelican-basic.html" rel="alternate"></link><published>2016-05-03T19:38:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:pelican-basic.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;Pelican有什么用&lt;/h2&gt;
+&lt;p&gt;Pelican是使用python语言开发的一个静态博客生成工具。默认支持reStructureText和HTML，也可以轻松支持Markdown。&lt;/p&gt;
+&lt;p&gt;我们平时写博客，一般是通过在博客网站注册一个帐号，然后就可以在里面写博客了。还有一种情况，就是自己在虚拟主机、
+公有云或VPS上自己搭建一个博客程序。有了Pelican，现在我们又多了一种选择，就是在本地用reStructureText或Makedown
+把文章写好，通过Pelican生成静态的html文件，然后把生成的静态文件上传到互联网能访问的地方就可以了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;目录结构&lt;/h2&gt;
+&lt;p&gt;我们使用Pelican写博客，首先要把源文件在本地写好，然后生成的静态文件也要有地方保存。
+在pelican中，通过 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-quickstart&lt;/span&gt;&lt;/tt&gt; 命令生成的文件夹中，如果不生成makefile和fabfile的话，目录结构如下:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+drwxr-xr-x 1 inpool 197121    0 五月  3 17:06 content/
+-rwxr-xr-x 1 inpool 197121 2202 五月  3 10:50 develop_server.sh
+drwxr-xr-x 1 inpool 197121    0 五月  3 15:11 output/
+-rwxr-xr-x 1 inpool 197121  862 五月  3 10:50 pelicanconf.py
+-rwxr-xr-x 1 inpool 197121  508 五月  3 10:50 publishconf.py
+&lt;/pre&gt;
+&lt;p&gt;各项的含义如下：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="22%" /&gt;
+&lt;col width="78%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;文件/目录&lt;/th&gt;
+&lt;th class="head"&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;content/&lt;/td&gt;
+&lt;td&gt;用于存放源文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;develop_server.sh&lt;/td&gt;
+&lt;td&gt;用于启动简单的本地服务器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;output/&lt;/td&gt;
+&lt;td&gt;用于存放pelican命令生成的目标文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;pelicanconf.py&lt;/td&gt;
+&lt;td&gt;pelican命令的默认配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;publishconf.py&lt;/td&gt;
+&lt;td&gt;作用同pelicanconf.py，用于生成发布用博客的配置文件，需要手动指定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;逻辑结构&lt;/h2&gt;
+&lt;p&gt;对于一个博客，基本要素就是文章、分类、归档和标签。在一个利用pelican生成的博客中，包含的要素有：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="82%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;要素&lt;/th&gt;
+&lt;th class="head"&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;文章(article)&lt;/td&gt;
+&lt;td&gt;就是我们在博客上写的内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;页面(page)&lt;/td&gt;
+&lt;td&gt;在博客中，除了我们写的内容，还会有一些其他的东西，比如博主的自我介绍、
+联系方式等，为了区别于正式的博客内容，pelican把它们传给页面&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;分类(category)&lt;/td&gt;
+&lt;td&gt;就是分类，每个人的分类方法都会有一些不同，没什么好说的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;归档(archive)&lt;/td&gt;
+&lt;td&gt;按照时间先后，将同一段时间发布的文章放在一起&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;标签(tag)&lt;/td&gt;
+&lt;td&gt;我们写的博文可能会设计不同的几个方面，那就可以把这些作为标签加入到博文
+的属性中。标签与分类的主要区别就是一个文章可以有多个标签，但只属于一个
+分类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;作者(author)&lt;/td&gt;
+&lt;td&gt;文章的作者，没什么好说的。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;其中，文章是一等公民，除页面外(页面是服务于整个博客的)，其他所有的元素都服务于文章，是文章的一种
+组织结构形态。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;分类、归档、标签和作者&lt;/h2&gt;
+&lt;p&gt;在pelican中，我们只要维护文章和页面就行了，分类、归档、标签和作者都是由pelican自动维护的。pelican会
+遍历所有的文章，在元数据中查询分类、标签和作者，并自动创建相应元素和静态页面。对于归档，pelican按照
+文章的标识的时间，自动编排出来。&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="pelican"></category><category term="blog"></category></entry></feed>
