@@ -1,6 +1,8 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block windowtitle %}首页 - {{SITENAME}}{% endblock %}
+
+{% block content %}
 {# show summaries of the latest articles #}
 {% if articles %}
 {% for article in (articles_page.object_list if articles_page else articles) %}
