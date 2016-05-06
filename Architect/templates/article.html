@@ -47,4 +47,21 @@
 		</h6>
 	</div>
 </article>
+{% if DUOSHUO_ID %}
+<!-- duoshuo commet start -->
+<div class="ds-thread" data-thread-key="/{{article.category.name}}/{{article.slug}}" data-title="{{article.title}}" data-url="{{SITEURL}}/{{article.url}}"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"{{DUOSHUO_ID}}"};
+(function() {
+	var ds = document.createElement('script'),
+		protocol = document.location.protocol == 'https:' ? 'https:' : 'http:';
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = protocol + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0]
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- duoshuo commet end -->
+{% endif %}{# DUOSHUO_ID #}
 {% endblock %}
