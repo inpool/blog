@@ -3,6 +3,7 @@ Pelican(二) —— 文件元数据
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :date: 2016-05-03 20:51
+:category: 工具
 :tags: pelican, blog, reStructuredText
 :slug: pelican-meta-data
 :summary: 元数据就是除了文章内容以外，对文章属性进行额外描述的数据，

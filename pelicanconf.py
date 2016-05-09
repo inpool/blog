@@ -24,18 +24,17 @@ DATE_FORMATS = {
 }
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (('Pelican', 'http://getpelican.com/'),)
 
 # Social widget
 SOCIAL = (('微博', 'http://weibo.com/inpool'),
           ('电子邮件', 'mailto:%69%6e%70%6f%6f%6c%40%31%32%36%2e%63%6f%6d'),)
 
 DEFAULT_PAGINATION = 10
-
+RELATIVE_URLS = True
+ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = '{category}/{slug}.html'
 THEME = 'Architect'
-
-# Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+SLUG_SUBSTITUTIONS = (
+    ('gong ju', 'tools'),
+)

@@ -3,9 +3,10 @@ Pelican(一) —— 基本理解
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :date: 2016-05-03 19:38
+:category: 工具
 :tags: pelican, blog
 :slug: pelican-basic
-:summary: 介绍Pelican的用途(说明)，目录结构和逻辑结构。       
+:summary: 介绍Pelican的用途(说明)，目录结构和逻辑结构。
 
 Pelican有什么用
 ---------------
