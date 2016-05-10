@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://inpool.xyz/" rel="alternate"></link><link href="http://inpool.xyz/feeds/all.atom.xml" rel="self"></link><id>http://inpool.xyz/</id><updated>2016-05-03T20:51:00+08:00</updated><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://inpool.xyz/" rel="alternate"></link><link href="http://inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>http://inpool.xyz/</id><updated>2016-05-03T20:51:00+08:00</updated><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;基础&lt;/h2&gt;
 &lt;p&gt;元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：&lt;/p&gt;
 &lt;ul class="simple"&gt;
