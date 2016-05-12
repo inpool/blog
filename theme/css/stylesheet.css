@@ -207,15 +207,17 @@ article p{
   text-indent: 2em;
 }
 article div.note{
-  margin: 0 5px;
   border: 1px #ccc solid;
-  padding: 10px 15px;
-  background: #7cf;
+  background: #9ef;
 }
 article p.admonition-title{
-  margin-top: 20px;
-  text-indent: 0;
-  font-weight: bold;
+    text-indent: 0;
+    padding: 5px 15px;
+    background: #7cf;
+    font-weight: bold;
+}
+article p.admonition-title ~ p{
+    padding: 0 20px;
 }
 article p.admonition-title:after{
   content: ':';
@@ -668,7 +670,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.8em;
   font-weight: bold;
-  color: #474747;
+  color: #000;
   text-align: center;
   letter-spacing: -1px;
 }
@@ -678,8 +680,9 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.6em;
   font-weight: bold;
-  color: #474747;
+  color: #444;
   text-indent: 4px;
+  border-bottom: 1px #ccc dotted;
 }
 
 #main-content h3 {
@@ -688,7 +691,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.4em;
   font-weight: bold;
-  color: #474747;
+  color: #777;
   text-indent: 3px;
 }
 
@@ -706,7 +709,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.2em;
   font-weight: bold;
-  color: #474747;
+  color: #000;
   text-indent: 3px;
 }
 
@@ -714,7 +717,7 @@ form {
   margin-bottom: 8px;
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1em;
-  color: #474747;
+  color: #444;
   text-indent: 3px;
 }
 
@@ -722,7 +725,7 @@ form {
   margin-bottom: 8px;
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: .8em;
-  color: #474747;
+  color: #777;
   text-indent: 3px;
 }
 
@@ -770,7 +773,6 @@ footer {
   margin: 20px auto;
   font-size: 13px;
   color: #aaa;
-  background: transparent url('../img/hr.png') 0 0 no-repeat;
 }
 
 footer a {

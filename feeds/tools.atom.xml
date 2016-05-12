@@ -1,5 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://inpool.xyz/" rel="alternate"></link><link href="http://inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>http://inpool.xyz/</id><updated>2016-05-03T20:51:00+08:00</updated><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://inpool.xyz/" rel="alternate"></link><link href="http://inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>http://inpool.xyz/</id><updated>2016-05-11T15:00:00+08:00</updated><entry><title>python包管理系统——pip的设置</title><link href="http://inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
+可以自定义安装源，以加快包的下载速度。在pip中，我们也可以自定义她的安装源。&lt;/p&gt;
+&lt;p&gt;要定义pip的安装源，首先需要找到她的配置文件，pip配置文件的位置，在6.0版本 &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;
+以后和6.0版本以前有一些区别，支持的范围也有一定的区别。&lt;/p&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;pip的6.0是一个比较大的更新，6.0的前一个版本不是5.0，而是1.5.6。&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="section" id="pip-6-0"&gt;
+&lt;h2&gt;pip 6.0之后的版本&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;全局配置文件&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="82%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Unix/Linux/BSD&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;/etc/pip.conf&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MAC OS X&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;/Library/Application Support/pip/pip.conf&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Windows XP -&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\Documents&lt;/span&gt; and Settings\All Users\Application Data\pip\pip.ini&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Windows 7 +&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\ProgramData\pip\pip.ini&lt;/span&gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;在Windows Vista中，不支持全局配置文件。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;用户配置文件&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="23%" /&gt;
+&lt;col width="77%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Unix/Linux/BSD&lt;/td&gt;
+&lt;td&gt;$HOME/.config/pip/pip.conf&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Mac OS X&lt;/td&gt;
+&lt;td&gt;$HOME/Library/Application Support/pip/pip.conf.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;%APPDATA%pippip.ini.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;虚拟环境配置文件&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="38%" /&gt;
+&lt;col width="62%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Unix/Linux/BSD/Mac OS X&lt;/td&gt;
+&lt;td&gt;$VIRTUAL_ENV/pip.conf&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;%VIRTUAL_ENV%pip.ini&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;读取配置文件的顺序&lt;/h3&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;读取全局配置文件&lt;/li&gt;
+&lt;li&gt;读取用户配置文件，并于全局配置文件合并，冲突的配置项以用户配置覆盖全局配置&lt;/li&gt;
+&lt;li&gt;读取虚拟环境配置文件，并于第2步的到的配置合并，冲突的配置以虚拟环境的配置为准&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;pip 6.0之前的版本&lt;/h2&gt;
+&lt;p&gt;pip 6.0之前的版本，原则上只支持用户配置文件：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="53%" /&gt;
+&lt;col width="47%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Unix/Linux/BSD/Mac OS X&lt;/td&gt;
+&lt;td&gt;$HOME/.pip/pip.conf&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;%HOME%pippip.ini&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;我们可以通过指定环境变量 &lt;tt class="docutils literal"&gt;PIP_CONFIG_FILE&lt;/tt&gt; 指定全局变量的文件名。pip 6.0之前
+的版本只会读取一个配置文件。如果通过环境变量指定了，则默认位置的配置文件不会起
+任何作用。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;配置选项&lt;/h2&gt;
+&lt;p&gt;pip的配置文件采用python的ini格式，针对每个pip的子命令的配置放在以子命令为名字的
+配置段中，对所有命令起作用的配置放在 &lt;tt class="docutils literal"&gt;global&lt;/tt&gt; 段中。&lt;/p&gt;
+&lt;p&gt;配置选项为所有能在命令行中指定的选项，取长选项名(&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;--&lt;/span&gt;&lt;/tt&gt; 开头的)。例如，我要从阿
+里云的镜像服务器安装pelican，用命令行的方式应该是:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ pip install --index-url=http://mirrors.aliyun.com/pypi/simple --trusted-host=mirrors.aliyun.com pelican
+&lt;/pre&gt;
+&lt;p&gt;因为pip 6.0以后默认值信任https连接，所以阿里云的镜像需要加上信任的选项。如果每次
+安装一个包都要输入这么一大串东西，关键是要把这个网址记住，想想都难受。通过下面这
+个配置文件，就可以解决了&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[global]&lt;/span&gt;
+&lt;span class="na"&gt;index-url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;http://mirrors.aliyun.com/pypi/simple&lt;/span&gt;
+&lt;span class="na"&gt;trusted-host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;mirrors.aliyun.com&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;现在要从阿里云的镜像上安装pelican，只需要简单的输入:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ pip install pelican
+&lt;/pre&gt;
+&lt;p&gt;现在安装一个包，下载速度以下提高了10几倍了。配合配置文件和download命令，在局域
+网和离线的机器上，都可以用pip命令安装了。&lt;/p&gt;
+&lt;p&gt;更多的配置项就不一一列举了，可以通过下面的命令查询:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ pip help [sub-command]
+&lt;/pre&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;基础&lt;/h2&gt;
 &lt;p&gt;元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -33,12 +166,8 @@
 &lt;/div&gt;
 &lt;div class="section" id="date"&gt;
 &lt;h2&gt;发布时间(date)&lt;/h2&gt;
-&lt;p&gt;该文章的发布时间，若没有提供，或明确提供为 &lt;tt class="docutils literal"&gt;'fs'&lt;/tt&gt; ，Pelican会试图从文件的修改时间提取。
+&lt;p&gt;该文章的发布时间，若没有提供，Pelican会根据配置文件的 &lt;tt class="docutils literal"&gt;DEFAULT_DATE&lt;/tt&gt; 设定获取时间，当 &lt;tt class="docutils literal"&gt;DEFAULT_DATE = 'fs'&lt;/tt&gt; 时，从文件的修改时间提取。
 由于文件的修改时间可能会由于各种原因发生变化，最好手动指定。&lt;/p&gt;
-&lt;div class="note"&gt;
-&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
-&lt;p class="last"&gt;我在windows 7下使用pelican 3.6.3，若不指定date，在转换为html文件时报错。&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="modified"&gt;
 &lt;h2&gt;最后修改时间(modified)&lt;/h2&gt;
