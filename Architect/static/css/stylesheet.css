@@ -670,7 +670,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.8em;
   font-weight: bold;
-  color: #474747;
+  color: #000;
   text-align: center;
   letter-spacing: -1px;
 }
@@ -680,8 +680,9 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.6em;
   font-weight: bold;
-  color: #474747;
+  color: #444;
   text-indent: 4px;
+  border-bottom: 1px #ccc dotted;
 }
 
 #main-content h3 {
@@ -690,7 +691,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.4em;
   font-weight: bold;
-  color: #474747;
+  color: #777;
   text-indent: 3px;
 }
 
@@ -708,7 +709,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1.2em;
   font-weight: bold;
-  color: #474747;
+  color: #000;
   text-indent: 3px;
 }
 
@@ -716,7 +717,7 @@ form {
   margin-bottom: 8px;
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: 1em;
-  color: #474747;
+  color: #444;
   text-indent: 3px;
 }
 
@@ -724,7 +725,7 @@ form {
   margin-bottom: 8px;
   font-family: 'Architects Daughter', 'Helvetica Neue', 'Microsoft YaHei', Helvetica, Arial, serif;
   font-size: .8em;
-  color: #474747;
+  color: #777;
   text-indent: 3px;
 }
 

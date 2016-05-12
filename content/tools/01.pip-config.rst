@@ -1,0 +1,104 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+python包管理系统——pip的设置
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:date: 2016-05-11 15:00
+:category: 工具
+:slug: configure-pip
+:summary: pip是 pypa_ 推荐的python包安装工具，作为包管理工具，就像debian的apt一
+          样，应该都可以自定义安装源，以加快包的下载速度。
+
+
+pip是 pypa_ 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
+可以自定义安装源，以加快包的下载速度。在pip中，我们也可以自定义她的安装源。
+
+要定义pip的安装源，首先需要找到她的配置文件，pip配置文件的位置，在6.0版本 [#]_
+以后和6.0版本以前有一些区别，支持的范围也有一定的区别。
+
+.. _pypa: https://www.pypa.io/en/latest/
+.. [#] pip的6.0是一个比较大的更新，6.0的前一个版本不是5.0，而是1.5.6。
+
+pip 6.0之后的版本
+=================
+
+全局配置文件
+-------------
+
+=============== ===============================================================
+Unix/Linux/BSD  ``/etc/pip.conf``
+MAC OS X        ``/Library/Application Support/pip/pip.conf``
+Windows XP -    ``C:\Documents and Settings\All Users\Application Data\pip\pip.ini``
+Windows 7 +     ``C:\ProgramData\pip\pip.ini``
+=============== ===============================================================
+
+.. note:: 在Windows Vista中，不支持全局配置文件。
+
+用户配置文件
+-------------
+
+============== ===============================================
+Unix/Linux/BSD $HOME/.config/pip/pip.conf
+Mac OS X       $HOME/Library/Application Support/pip/pip.conf.
+Windows        %APPDATA%\pip\pip.ini.
+============== ===============================================
+
+虚拟环境配置文件
+----------------
+
+======================= =====================================
+Unix/Linux/BSD/Mac OS X $VIRTUAL_ENV/pip.conf
+Windows                 %VIRTUAL_ENV%\pip.ini
+======================= =====================================
+
+读取配置文件的顺序
+------------------
+1. 读取全局配置文件
+2. 读取用户配置文件，并于全局配置文件合并，冲突的配置项以用户配置覆盖全局配置
+3. 读取虚拟环境配置文件，并于第2步的到的配置合并，冲突的配置以虚拟环境的配置为准
+
+pip 6.0之前的版本
+=================
+
+pip 6.0之前的版本，原则上只支持用户配置文件：
+
+======================= ====================
+Unix/Linux/BSD/Mac OS X $HOME/.pip/pip.conf
+Windows                 %HOME%\pip\pip.ini
+======================= ====================
+
+我们可以通过指定环境变量 ``PIP_CONFIG_FILE`` 指定全局变量的文件名。pip 6.0之前
+的版本只会读取一个配置文件。如果通过环境变量指定了，则默认位置的配置文件不会起
+任何作用。
+
+配置选项
+========
+
+pip的配置文件采用python的ini格式，针对每个pip的子命令的配置放在以子命令为名字的
+配置段中，对所有命令起作用的配置放在 ``global`` 段中。
+
+配置选项为所有能在命令行中指定的选项，取长选项名(``--`` 开头的)。例如，我要从阿
+里云的镜像服务器安装pelican，用命令行的方式应该是::
+
+   $ pip install --index-url=http://mirrors.aliyun.com/pypi/simple --trusted-host=mirrors.aliyun.com pelican
+
+因为pip 6.0以后默认值信任https连接，所以阿里云的镜像需要加上信任的选项。如果每次
+安装一个包都要输入这么一大串东西，关键是要把这个网址记住，想想都难受。通过下面这
+个配置文件，就可以解决了
+
+.. code-block:: ini
+
+  [global]
+  index-url = http://mirrors.aliyun.com/pypi/simple
+  trusted-host = mirrors.aliyun.com
+
+现在要从阿里云的镜像上安装pelican，只需要简单的输入::
+
+   $ pip install pelican
+
+现在安装一个包，下载速度以下提高了10几倍了。配合配置文件和download命令，在局域
+网和离线的机器上，都可以用pip命令安装了。
+
+更多的配置项就不一一列举了，可以通过下面的命令查询::
+
+   $ pip help [sub-command]
+
