@@ -39,12 +39,15 @@
 <body>
   <header>
     <div class="inner">
-      <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+      <h1><a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a></h1>
     </div>
   </header>
   <div id="content-wrapper">
     <div class="inner clearfix">
-      <section id="main-content">{% block content %}{% endblock %}</section>
+      <section id="main-content">
+        {% block pagetitle %}{% endblock %}
+        {% block content %}{% endblock %}
+      </section>
       <aside id="sidebar">
         <div class="pannel">
           <h6>关于我</h6>
@@ -65,8 +68,8 @@
         <div class="pannel">
           <h6>标签</h6>
           <ul class="side-nav">
-            {% for tag, articles in tags | sort %}
-            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }} <sup>{{ articles | length }}</sup></a></li>
+            {% for tg, articles in tags | sort %}
+            <li><a href="{{ SITEURL }}/{{ tg.url }}">{{ tg.name }} <sup>{{ articles | length }}</sup></a></li>
             {% endfor %}
           </ul>
         </div>
