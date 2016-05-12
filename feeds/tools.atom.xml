@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://inpool.xyz/" rel="alternate"></link><link href="http://inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>http://inpool.xyz/</id><updated>2016-05-11T15:00:00+08:00</updated><entry><title>python包管理系统——pip的设置</title><link href="http://inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
+<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="http://www.inpool.xyz/" rel="alternate"></link><link href="http://www.inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>http://www.inpool.xyz/</id><updated>2016-05-11T15:00:00+08:00</updated><entry><title>python包管理系统——pip的设置</title><link href="http://www.inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
 可以自定义安装源，以加快包的下载速度。在pip中，我们也可以自定义她的安装源。&lt;/p&gt;
 &lt;p&gt;要定义pip的安装源，首先需要找到她的配置文件，pip配置文件的位置，在6.0版本 &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;
 以后和6.0版本以前有一些区别，支持的范围也有一定的区别。&lt;/p&gt;
@@ -132,7 +132,7 @@ $ pip install pelican
 $ pip help [sub-command]
 &lt;/pre&gt;
 &lt;/div&gt;
-</summary><category term="pip"></category><category term="python"></category><category term="package management"></category></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+</summary><category term="pip"></category><category term="python"></category><category term="package management"></category></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="http://www.inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;基础&lt;/h2&gt;
 &lt;p&gt;元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -225,7 +225,7 @@ $ pip help [sub-command]
 信息，pelican会自动获取到data为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'2016-05-03'&lt;/span&gt;&lt;/tt&gt; ，而slug为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'pelican-meta-data'&lt;/span&gt;&lt;/tt&gt; 。&lt;/p&gt;
 &lt;p&gt;采用这种方式时， &lt;tt class="docutils literal"&gt;FILENAME_METADATA&lt;/tt&gt; 的设置方法为正则表达式，需要一定的学习。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="blog"></category><category term="reStructuredText"></category></entry><entry><title>Pelican(一) —— 基本理解</title><link href="http://inpool.xyz/tools/pelican-basic.html" rel="alternate"></link><published>2016-05-03T19:38:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-basic.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+</summary><category term="pelican"></category><category term="blog"></category><category term="reStructuredText"></category></entry><entry><title>Pelican(一) —— 基本理解</title><link href="http://www.inpool.xyz/tools/pelican-basic.html" rel="alternate"></link><published>2016-05-03T19:38:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-03:tools/pelican-basic.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;Pelican有什么用&lt;/h2&gt;
 &lt;p&gt;Pelican是使用python语言开发的一个静态博客生成工具。默认支持reStructureText和HTML，也可以轻松支持Markdown。&lt;/p&gt;
 &lt;p&gt;我们平时写博客，一般是通过在博客网站注册一个帐号，然后就可以在里面写博客了。还有一种情况，就是自己在虚拟主机、

@@ -4,105 +4,105 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://inpool.xyz/</loc>
-<lastmod>2016-05-12T19:43:40-00:00</lastmod>
+<loc>http://www.inpool.xyz/</loc>
+<lastmod>2016-05-12T19:53:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/archives.html</loc>
-<lastmod>2016-05-12T19:43:40-00:00</lastmod>
+<loc>http://www.inpool.xyz/archives.html</loc>
+<lastmod>2016-05-12T19:53:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tags.html</loc>
-<lastmod>2016-05-12T19:43:40-00:00</lastmod>
+<loc>http://www.inpool.xyz/tags.html</loc>
+<lastmod>2016-05-12T19:53:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/categories.html</loc>
-<lastmod>2016-05-12T19:43:40-00:00</lastmod>
+<loc>http://www.inpool.xyz/categories.html</loc>
+<lastmod>2016-05-12T19:53:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tools/configure-pip.html</loc>
+<loc>http://www.inpool.xyz/tools/configure-pip.html</loc>
 <lastmod>2016-05-11T15:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tools/pelican-meta-data.html</loc>
+<loc>http://www.inpool.xyz/tools/pelican-meta-data.html</loc>
 <lastmod>2016-05-03T20:51:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tools/pelican-basic.html</loc>
+<loc>http://www.inpool.xyz/tools/pelican-basic.html</loc>
 <lastmod>2016-05-03T19:38:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/category/tools.html</loc>
+<loc>http://www.inpool.xyz/category/tools.html</loc>
 <lastmod>2016-05-11T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tag/blog.html</loc>
+<loc>http://www.inpool.xyz/tag/restructuredtext.html</loc>
 <lastmod>2016-05-03T20:51:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tag/package-management.html</loc>
+<loc>http://www.inpool.xyz/tag/python.html</loc>
 <lastmod>2016-05-11T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tag/restructuredtext.html</loc>
+<loc>http://www.inpool.xyz/tag/package-management.html</loc>
+<lastmod>2016-05-11T15:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.inpool.xyz/tag/pelican.html</loc>
 <lastmod>2016-05-03T20:51:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tag/pip.html</loc>
-<lastmod>2016-05-11T15:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://inpool.xyz/tag/pelican.html</loc>
+<loc>http://www.inpool.xyz/tag/blog.html</loc>
 <lastmod>2016-05-03T20:51:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/tag/python.html</loc>
+<loc>http://www.inpool.xyz/tag/pip.html</loc>
 <lastmod>2016-05-11T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://inpool.xyz/author/inpool.html</loc>
+<loc>http://www.inpool.xyz/author/inpool.html</loc>
 <lastmod>2016-05-11T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
