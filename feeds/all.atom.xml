@@ -132,7 +132,7 @@ $ pip install pelican
 $ pip help [sub-command]
 &lt;/pre&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+</summary><category term="pip"></category><category term="python"></category><category term="package management"></category></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="http://inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;基础&lt;/h2&gt;
 &lt;p&gt;元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：&lt;/p&gt;
 &lt;ul class="simple"&gt;
