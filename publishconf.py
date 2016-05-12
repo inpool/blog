@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
-
-# This file is only used if you use `make publish` or
-# explicitly specify it as your config file.
 
 import os
 import sys
@@ -16,12 +12,26 @@ RELATIVE_URLS = False
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
-DUOSHUO_ID = 'inpool'
 OUTPUT_PATH = '../blog/'
 OUTPUT_RETENTION = ['.git', '.gitignore', 'CNAME', 'params.json']
 DELETE_OUTPUT_DIRECTORY = True
 
-# Following items are often useful when publishing
+# 多说ID
+DUOSHUO_ID = 'inpool'
 
-# DISQUS_SITENAME = ""
-# GOOGLE_ANALYTICS = ""
+# Plugin Settings
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['sitemap']
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 1,
+        'indexes': 0.5,
+        'pages': 0.1
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
