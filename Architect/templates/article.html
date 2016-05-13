@@ -51,7 +51,10 @@
 </article>
 {% if DUOSHUO_ID %}
 <!-- duoshuo commet start -->
-<div class="ds-thread" data-thread-key="/{{article.category.slug}}/{{article.slug}}" data-title="{{article.title}}" data-url="{{SITEURL}}/{{article.url}}"></div>
+{% if not DUOSHUO_URL %}
+{% set DUOSHUO_URL = SITEURL%}
+{% endif %}
+<div class="ds-thread" data-thread-key="/{{article.category.slug}}/{{article.slug}}" data-title="{{article.title}}" data-url="{{DUOSHUO_URL}}/{{article.url}}"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"{{DUOSHUO_ID}}"};
 (function() {
