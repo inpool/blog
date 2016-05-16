@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="//www.inpool.xyz/" rel="alternate"></link><link href="//www.inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>//www.inpool.xyz/</id><updated>2016-05-11T15:00:00+08:00</updated><entry><title>python包管理系统——pip的设置</title><link href="//www.inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
+<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="//www.inpool.xyz/" rel="alternate"></link><link href="//www.inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>//www.inpool.xyz/</id><updated>2016-05-16T19:21:00+08:00</updated><entry><title>Pelican(三) —— 基本使用</title><link href="//www.inpool.xyz/tools/pelican-usage.html" rel="alternate"></link><published>2016-05-16T19:21:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-16:tools/pelican-usage.html</id><summary type="html">&lt;p&gt;前面两篇文章简单介绍了以下pelican的基本内容，网上已经有很多关于使用pelican的文
+章，我刚开始使用pelican的时候，也是看那些文章过来的，我觉得有些地方讲的不是很清
+楚，所以还是决定写一下他的基本使用。&lt;/p&gt;
+&lt;p&gt;对于每一个步骤，我先将相关的命令打出来，然后说明这个命令干了什么，以及有什么需
+要注意的地方。&lt;/p&gt;
+&lt;div class="section" id="python"&gt;
+&lt;h2&gt;1. 安装python&lt;/h2&gt;
+&lt;p&gt;对于linux用户来说，一般系统都自带了python环境，这一步可以省略。我认为Linux用户
+有足够的能力安装下面提到的任何工具，所以后面不会对linxu额外作说明。&lt;/p&gt;
+&lt;p&gt;由于pelican是使用python语言写的，所以首先要安装python。非python程序员建议直接安
+装python 3.4版本，python 3以上自带了pip包管理工具，可以省去安装setuptools和pip
+的步骤。可以直接到 &lt;a class="reference external" href="http://www.python.org/downloads"&gt;python官网&lt;/a&gt; 下载安装。不管32位还是64位系统，都选x86的安装包
+就可以了。还有困难的，
+点 &lt;a class="reference external" href="https://www.python.org/ftp/python/3.4.4/python-3.4.4.msi"&gt;这里&lt;/a&gt; 直接下载安
+装，安装路径选默认的就可以了，一般是 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\Python34&lt;/span&gt;&lt;/tt&gt; ，后面谈及路径的时候都假设
+python安装到这个地址了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;2. 添加环境变量&lt;/h2&gt;
+&lt;p&gt;将 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\Python34\Scripts&lt;/span&gt;&lt;/tt&gt; 添加到环境变量PATH中。如果省略这一步，后面的大部分
+命令都需要在前面加上路径。具体添加方法自行百度。实在不会添加环境变量或者懒得添
+加环境变量的，将下面的脚本保存为一个批处理命令，每次要执行下面的命令时，双击这
+个批处理命令启动命令提示符就行了:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+path C:\Python34\Scripts;%PATH%
+start
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;2. 安装pelican&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+$ pip install pelican
+&lt;/pre&gt;
+&lt;p&gt;安装pelican和相关的依赖包，pip会自动下载相关的包并安装。安装完成后，在
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\Python34\Scripts&lt;/span&gt;&lt;/tt&gt; 下会生成几个可执行文件，分别是 &lt;cite&gt;pelican.exe&lt;/cite&gt;,
+&lt;cite&gt;pelican-import.exe&lt;/cite&gt;, &lt;cite&gt;pelican-quickstart.exe&lt;/cite&gt;, &lt;cite&gt;pelican-themes.exe&lt;/cite&gt;。
+它们的用途：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="23%" /&gt;
+&lt;col width="77%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;命令&lt;/th&gt;
+&lt;th class="head"&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;pelican&lt;/td&gt;
+&lt;td&gt;读取将reStructuredText或Markdown源文件，生成静态博客。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;pelican-import&lt;/td&gt;
+&lt;td&gt;将feed, wordpress等格式的文件转换成reStructuredText(.rst)或
+Markdown(.md)源文件，需要安装 &lt;cite&gt;pandoc&lt;/cite&gt; 以及其他一些依赖。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;pelican-quickstart&lt;/td&gt;
+&lt;td&gt;通过询问用户一些必要的信息，自动化生成pelican博客工程框架，
+包括源文件目录、输出目录、配置文件和可选的makefile或fabfile。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;pelican-themes&lt;/td&gt;
+&lt;td&gt;pelican主题管理工具。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;3. 安装可选包&lt;/h2&gt;
+&lt;p&gt;pelican默认支持使用reStructuredText写博客，如果要使用Markdown写博客，需要安装
+Markdown支持:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ pip install markdown
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;4. 新建博客工程&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir myblog
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; myblog
+$ pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;所谓的博客工程，其实就是一个文件夹，和博客所有相关的东西都在这个文件夹内。
+一个典型的博客工程结构，可以参见前面的一篇文章 &lt;a class="reference external" href="//www.inpool.xyz/tools/pelican-basic.html"&gt;pelican(一)——基本理解&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;以上第一个和第二个命令，就是新建一个目录并进入这个目录，用于存放所有相关的内容。
+这个目录(文件夹)名字可以随意。&lt;/p&gt;
+&lt;p&gt;第三个命令用于创建基本结构，只要按顺序回答问题就行了。对于看不明白的，使用默认
+值就OK。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;5. 写博客&lt;/h2&gt;
+&lt;p&gt;好了，经过以上步骤，就可以开始用reStructuredText或Markdown写博客了，需要注意的
+是reStructuredText的源文件用 &lt;tt class="docutils literal"&gt;.rst&lt;/tt&gt; 作为后缀名，而Markdown的源文件使用 &lt;tt class="docutils literal"&gt;.md&lt;/tt&gt;
+作为后缀名。我是用rst的，具体语法等以后有空再写一个系列文章。&lt;/p&gt;
+&lt;p&gt;博客的源文件需要放在content文件夹。如果不知道从哪下手的话，可以拷贝 &lt;a class="reference external" href="https://raw.githubusercontent.com/inpool/blog-inpool.github.io/master/content/tools/00.pelican/01.pelican-basic.rst"&gt;我的博客源码&lt;/a&gt;
+行一个测试。只需要保存在content目录下，文件名随意。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h2&gt;6. 生成博客&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个命令需要在 &lt;a class="reference internal" href="#id6"&gt;4. 新建博客工程&lt;/a&gt; 中创建的目录中执行，也就是 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-quickstart&lt;/span&gt;&lt;/tt&gt;
+命令生成的 &lt;cite&gt;pelicanconf.py&lt;/cite&gt; 文件所在的文件夹。&lt;/p&gt;
+&lt;p&gt;这条命令执行的操作是读取同目录下的 &lt;tt class="docutils literal"&gt;pelicanconf.py&lt;/tt&gt; 作为配置文件生成静态博客。
+如果不想使用默认的配置文件，可以通过 &lt;tt class="docutils literal"&gt;pelican &lt;span class="pre"&gt;-s&lt;/span&gt; configfile&lt;/tt&gt; 指定配置文件。更
+详细的用法可以通过 &lt;tt class="docutils literal"&gt;pelican &lt;span class="pre"&gt;--help&lt;/span&gt;&lt;/tt&gt; 查看。各配置项可以参看 &lt;a class="reference external" href="http://docs.getpelican.com/en/latest/content.html"&gt;pelican官方文档&lt;/a&gt;
+，这个官方文档是最新版本的，部分配置项只有github克隆下来的代码才支持，具体版本
+支持的配置项，可以通过左下角选择对应的版本查看，当前环境安装的pelican版本，使用
+&lt;tt class="docutils literal"&gt;pelican &lt;span class="pre"&gt;--version&lt;/span&gt;&lt;/tt&gt; 查看。&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="pelican"></category><category term="python"></category><category term="reStructuredText"></category></entry><entry><title>python包管理系统——pip的设置</title><link href="//www.inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
 可以自定义安装源，以加快包的下载速度。在pip中，我们也可以自定义她的安装源。&lt;/p&gt;
 &lt;p&gt;要定义pip的安装源，首先需要找到她的配置文件，pip配置文件的位置，在6.0版本 &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;
 以后和6.0版本以前有一些区别，支持的范围也有一定的区别。&lt;/p&gt;
