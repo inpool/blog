@@ -12,7 +12,7 @@ RELATIVE_URLS = False
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
-OUTPUT_PATH = '../gh-blog/'
+OUTPUT_PATH = '../github/'
 OUTPUT_RETENTION = ['.git', '.gitignore', 'CNAME', 'params.json']
 DELETE_OUTPUT_DIRECTORY = True
 
