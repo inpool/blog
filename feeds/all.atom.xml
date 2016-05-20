@@ -426,4 +426,33 @@ drwxr-xr-x 1 inpool 197121    0 五月  3 15:11 output/
 遍历所有的文章，在元数据中查询分类、标签和作者，并自动创建相应元素和静态页面。对于归档，pelican按照
 文章的标识的时间，自动编排出来。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="blog"></category></entry></feed>
+</summary><category term="pelican"></category><category term="blog"></category></entry><entry><title>如何管理Sublime Text的插件</title><link href="//www.inpool.xyz/tools/sublime-text-plugin.html" rel="alternate"></link><published>2015-05-20T18:37:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2015-05-20:tools/sublime-text-plugin.html</id><summary type="html">&lt;p&gt;sublime text的插件一般通过Package Control来管理，而Package Control本身也是一个插件：&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;安装Package Control。使用 Ctrl+` 打开控制台。如果有其他软件的热键与这个热键
+冲突的话，点击左下角的图标，弹出菜单中选择Console。然后在控制台中粘贴以下代码。&lt;/p&gt;
+&lt;p&gt;Sublime Text 2:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+import urllib2,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')
+&lt;/pre&gt;
+&lt;p&gt;Sublime Text 3:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Package Control安装过程中左下角会提示当前正在执行的步骤。安装完成后重启
+sublime text。然后按 Ctrl+Shift+P ，输入&amp;quot; install package&amp;quot; 下面会出现几个选
+项。选择&amp;quot;Package Control: Install Package&amp;quot;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;这时候Package Control会联网获取插件列表，获取完毕后就会显示出来。需要注意的
+是中途不要切换出去，因为sublime text中途切换出去后弹出的窗口会自动关掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;在可安装插件列表上面有个输入框，输入你要安装的插件 &amp;quot;emmet&amp;quot;，下面列表中不相关
+的插件就会被过滤。自己看哪个是你要安装的插件，选中，回车。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;接下来package control 会自动下载选中的插件和依赖的插件，并安装。安装完成后一
+般会弹出相关的说明，最好看一下，因为每个插件可能有单独的设置项、快捷键和用法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;最后可能会提示重启Sublime Text。按照提示关掉重启就好了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><category term="plugin"></category></entry></feed>

@@ -12,7 +12,7 @@
   <!--[if lt IE 9]>
   <script src="//www.inpool.xyz/theme/js/html5.js"></script>
   <![endif]-->
-  <title>reStructuredText(一)——初探 - 英银坡'S BLOG </title>
+  <title>如何管理Sublime Text的插件 - 英银坡'S BLOG </title>
 </head>
 <body>
   <header>
@@ -24,54 +24,53 @@
     <div class="inner clearfix">
       <section id="main-content">
 <article>
-	<h1>reStructuredText(一)——初探</h1>
+	<h1>如何管理Sublime Text的插件</h1>
 	<div class="article_info">
 		<h6>
 			<span>
 				<a href="http://weibo.com/inpool" target="_blank">Inpool</a>
 			</span>
 			<span>
-				2016-05-13 22:34
+				2015-05-20 18:37
 			</span>
 				<span>
 					分类：<a href="//www.inpool.xyz/category/tools.html">工具</a>
 				</span>
 		</h6>
 			<h6>
-				<span>标签：						<a href="//www.inpool.xyz/tag/restructuredtext.html" class="tag">reStructuredText</a>
-						<a href="//www.inpool.xyz/tag/python.html" class="tag">python</a>
-						<a href="//www.inpool.xyz/tag/pelican.html" class="tag">pelican</a>
+				<span>标签：						<a href="//www.inpool.xyz/tag/plugin.html" class="tag">plugin</a>
 </span>
 			</h6>
 	</div>
-	<p>这篇先系统的介绍一下reStructuredText(以下简称reST)中的一些基本概念，在后续的文章
-中，会大概按照先常用后高级的顺序介绍。</p>
-<div class="section" id="id2">
-<h2>1.基本概念</h2>
-<p>一个reST的文档由许多 <cite>文档元素</cite> (Body Elements)组成，我们先把文档理解成从上到下
-的文本流，一个文档元素就是结构上与上下都没有关联的一块内容。文档元素分为段落、
-列表、表格等很多类别。在文档元素中，有一种特殊的存在，叫做 <cite>显式标记</cite> (Explicit
-Markup)，用于对行内标记进行解释、说明，对文档结构做辅助作用和插入一些复杂的文档
-元素。</p>
-<p>在文档元素内部，我们可以通过一些标记对内容进行格式化和说明，比如加粗、斜体、超
-链接、脚注等，为了实现这部分功能，reST引入了 <cite>行内标记</cite> (Inline Markup) 的概念。
-行内标记也有一种特殊的存在，叫做 <cite>解释文本</cite> (Interpreted Text) 。用于辅助行内标
-记的格式和一些比较复杂的格式定义。</p>
-</div>
-<div class="section" id="id3">
-<h2>2.空行和缩进</h2>
-</div>
-<div class="section" id="id4">
-<h2>3.转义机制</h2>
-</div>
-<div class="section" id="body-elements">
-<h2>4.文档元素(Body Elements)</h2>
-<p>如果熟悉HTML的话，文档元素就相当于HTML中的块级元素。类似于HTML，reST也有很多种
-文档元素：</p>
-</div>
-<div class="section" id="inline-markup">
-<h2>5.行内标记(Inline Markup)</h2>
-</div>
+	<p>sublime text的插件一般通过Package Control来管理，而Package Control本身也是一个插件：</p>
+<ol class="arabic">
+<li><p class="first">安装Package Control。使用 Ctrl+` 打开控制台。如果有其他软件的热键与这个热键
+冲突的话，点击左下角的图标，弹出菜单中选择Console。然后在控制台中粘贴以下代码。</p>
+<p>Sublime Text 2:</p>
+<pre class="literal-block">
+import urllib2,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')
+</pre>
+<p>Sublime Text 3:</p>
+<pre class="literal-block">
+import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+</pre>
+</li>
+<li><p class="first">Package Control安装过程中左下角会提示当前正在执行的步骤。安装完成后重启
+sublime text。然后按 Ctrl+Shift+P ，输入&quot; install package&quot; 下面会出现几个选
+项。选择&quot;Package Control: Install Package&quot;。</p>
+</li>
+<li><p class="first">这时候Package Control会联网获取插件列表，获取完毕后就会显示出来。需要注意的
+是中途不要切换出去，因为sublime text中途切换出去后弹出的窗口会自动关掉。</p>
+</li>
+<li><p class="first">在可安装插件列表上面有个输入框，输入你要安装的插件 &quot;emmet&quot;，下面列表中不相关
+的插件就会被过滤。自己看哪个是你要安装的插件，选中，回车。</p>
+</li>
+<li><p class="first">接下来package control 会自动下载选中的插件和依赖的插件，并安装。安装完成后一
+般会弹出相关的说明，最好看一下，因为每个插件可能有单独的设置项、快捷键和用法。</p>
+</li>
+<li><p class="first">最后可能会提示重启Sublime Text。按照提示关掉重启就好了</p>
+</li>
+</ol>
 
 	<div class="article_info">
 		<h6>
@@ -79,12 +78,10 @@ Markup)，用于对行内标记进行解释、说明，对文档结构做辅助�
 				<a href="http://weibo.com/inpool" target="_blank">Inpool</a>
 			</span>
 			<span>
-				2016-05-13 22:34
+				2015-05-20 18:37
 			</span>
 			<span>
-					<a href="//www.inpool.xyz/tag/restructuredtext.html" class="tag">reStructuredText</a>
-					<a href="//www.inpool.xyz/tag/python.html" class="tag">python</a>
-					<a href="//www.inpool.xyz/tag/pelican.html" class="tag">pelican</a>
+					<a href="//www.inpool.xyz/tag/plugin.html" class="tag">plugin</a>
 			</span>
 			<span>
 					分类：<a href="//www.inpool.xyz/category/tools.html">工具</a>
@@ -93,7 +90,7 @@ Markup)，用于对行内标记进行解释、说明，对文档结构做辅助�
 	</div>
 </article>
 <!-- duoshuo commet start -->
-<div class="ds-thread" data-thread-key="/tools/starting-restructuredtext" data-title="reStructuredText(一)——初探" data-url="http://www.inpool.xyz/drafts/starting-restructuredtext.html"></div>
+<div class="ds-thread" data-thread-key="/tools/sublime-text-plugin" data-title="如何管理Sublime Text的插件" data-url="http://www.inpool.xyz/tools/sublime-text-plugin.html"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"inpool"};
 (function() {
