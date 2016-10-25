@@ -26,7 +26,7 @@ CLOUDFILES_CONTAINER=my_cloudfiles_container
 DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=gh-pages
-RHCLOUD_BRANCH=master
+RHCLOUD_BRANCH=rhc
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -124,7 +124,7 @@ github: publish
 	git push origin $(GITHUB_PAGES_BRANCH)
 	
 rhcloud: publish
-	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push rhcloud $(GITHUB_PAGES_BRANCH):$(RHCLOUD_BRANCH)
+	ghp-import -m "Generate Pelican site" -b $(RHCLOUD_BRANCH) $(OUTPUTDIR)
+	git push rhcloud $(RHCLOUD_BRANCH):master
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
