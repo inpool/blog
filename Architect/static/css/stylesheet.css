@@ -209,6 +209,7 @@ article p{
 article div.note{
   border: 1px #ccc solid;
   background: #9ef;
+  margin-bottom:5px;
 }
 article p.admonition-title{
     text-indent: 0;
