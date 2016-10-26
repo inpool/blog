@@ -1,5 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="//www.inpool.xyz/" rel="alternate"></link><link href="//www.inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>//www.inpool.xyz/</id><updated>2016-05-16T19:21:00+08:00</updated><entry><title>Pelican(三) —— 基本使用</title><link href="//www.inpool.xyz/tools/pelican-usage.html" rel="alternate"></link><published>2016-05-16T19:21:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-16:tools/pelican-usage.html</id><summary type="html">&lt;p&gt;前面两篇文章简单介绍了以下pelican的基本内容，网上已经有很多关于使用pelican的文
+<feed xmlns="http://www.w3.org/2005/Atom"><title>英银坡'S BLOG</title><link href="//www.inpool.xyz/" rel="alternate"></link><link href="//www.inpool.xyz/feeds/tools.atom.xml" rel="self"></link><id>//www.inpool.xyz/</id><updated>2016-10-26T11:48:00+08:00</updated><entry><title>reStructuredText(一)——初探</title><link href="//www.inpool.xyz/tools/starting-restructuredtext.html" rel="alternate"></link><published>2016-10-26T11:48:00+08:00</published><updated>2016-10-26T11:48:00+08:00</updated><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-10-26:tools/starting-restructuredtext.html</id><summary type="html">&lt;p&gt;这篇先系统的介绍一下reStructuredText(以下简称reST)中的一些基本概念，在后续的文章
+中，会大概按照先常用后高级的顺序介绍。&lt;/p&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;1.基本概念&lt;/h2&gt;
+&lt;p&gt;一个reST的文档由许多 &lt;cite&gt;文档元素&lt;/cite&gt; (Body Elements)组成，我们先把文档理解成从上到下
+的文本流，一个文档元素就是结构上与上下都没有关联的一块内容，我把他们类比为HTML
+中的块元素。文档元素分为段落、列表、表格等很多类别。在文档元素中，有一种特殊的
+存在，叫做 &lt;cite&gt;显式标记&lt;/cite&gt; (Explicit Markup)，用于对行内标记进行解释、说明，对文档结
+构做辅助作用和插入一些复杂的文档元素。&lt;/p&gt;
+&lt;p&gt;在文档元素内部，我们可以通过一些标记对内容进行格式化和说明，比如加粗、斜体、超
+链接、脚注等，为了实现这部分功能，reST引入了 &lt;cite&gt;行内标记&lt;/cite&gt; (Inline Markup) 的概念，
+我把他们类比为HTML中的内联元素。行内标记也有一种特殊的存在，叫做 &lt;cite&gt;解释文本&lt;/cite&gt;
+(Interpreted Text) 。用于辅助行内标记的格式和一些比较复杂的格式定义。&lt;/p&gt;
+&lt;p&gt;我们从一个reST文档源文件来直观的看一下各类元素：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="lineno"&gt; 1 &lt;/span&gt;&lt;span class="gh"&gt;示例reST文档&lt;/span&gt;
+&lt;span class="lineno"&gt; 2 &lt;/span&gt;&lt;span class="gh"&gt;===================&lt;/span&gt;
+&lt;span class="lineno"&gt; 3 &lt;/span&gt;
+&lt;span class="lineno"&gt; 4 &lt;/span&gt;&lt;span class="gh"&gt;标题一&lt;/span&gt;
+&lt;span class="lineno"&gt; 5 &lt;/span&gt;&lt;span class="gh"&gt;------------&lt;/span&gt;
+&lt;span class="lineno"&gt; 6 &lt;/span&gt;
+&lt;span class="lineno"&gt; 7 &lt;/span&gt;&lt;span class="ge"&gt;*斜体输出*&lt;/span&gt; 是一个行内标记，
+&lt;span class="lineno"&gt; 8 &lt;/span&gt;&lt;span class="gs"&gt;**加粗输出**&lt;/span&gt; 也是一个行内标记，
+&lt;span class="lineno"&gt; 9 &lt;/span&gt;&lt;span class="s"&gt;`` *restructuredtext* ``&lt;/span&gt; 依旧是一个行内标记。
+&lt;span class="lineno"&gt;10 &lt;/span&gt;这个 链接__ 到博客主页，而有些 &lt;span class="s"&gt;`链接 &lt;/span&gt;&lt;span class="si"&gt;&amp;lt;link_&amp;gt;&lt;/span&gt;&lt;span class="s"&gt;`_&lt;/span&gt;
+&lt;span class="lineno"&gt;11 &lt;/span&gt;可以反复引用多次，比如现在换个名字链接到
+&lt;span class="lineno"&gt;12 &lt;/span&gt;&lt;span class="s"&gt;`不带 www 的主页地址 &lt;/span&gt;&lt;span class="si"&gt;&amp;lt;link_&amp;gt;&lt;/span&gt;&lt;span class="s"&gt;`_&lt;/span&gt; 。有时候有些链接在文
+&lt;span class="lineno"&gt;13 &lt;/span&gt;中只出现一次，可以不用单独定义链接。比如：
+&lt;span class="lineno"&gt;14 &lt;/span&gt;&lt;span class="s"&gt;`百度 &lt;/span&gt;&lt;span class="si"&gt;&amp;lt;http://baidu.com&amp;gt;&lt;/span&gt;&lt;span class="s"&gt;`_&lt;/span&gt; 。
+&lt;span class="lineno"&gt;15 &lt;/span&gt;
+&lt;span class="lineno"&gt;16 &lt;/span&gt;&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="nt"&gt;__:&lt;/span&gt; http://www.inpool.xyz
+&lt;span class="lineno"&gt;17 &lt;/span&gt;&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="nt"&gt;_link:&lt;/span&gt; http://inpool.xyz
+&lt;/pre&gt;&lt;/div&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="20%" /&gt;
+&lt;col width="80%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;第1-2行&lt;/td&gt;
+&lt;td&gt;文章的主标题，文档元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第4-5行&lt;/td&gt;
+&lt;td&gt;文章的一级标题，文档元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第7-9行&lt;/td&gt;
+&lt;td&gt;各种不同的行内标记&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第10行&lt;/td&gt;
+&lt;td&gt;行内标记，匿名超链接和命名超链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第12行&lt;/td&gt;
+&lt;td&gt;命名超链接，命名的超链接可以多次引用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第14行&lt;/td&gt;
+&lt;td&gt;直接内部指定URL的超链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第7-14行&lt;/td&gt;
+&lt;td&gt;一个段落，文档元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;第16-17行&lt;/td&gt;
+&lt;td&gt;显示标记，用于指定匿名链接和命名链接的URL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;在上面的代码中，为了便于说明，我刻意把文档许多不同的部分分成多行，在实际使用中，
+可以不用分开，输出效果是一样的。在这里列出一小段代码，主要是提供一个感性的认识，
+具体元素的介绍在后面再介绍。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;2.空行和缩进&lt;/h2&gt;
+&lt;p&gt;reST作为Python的官方支持格式，他的很多格式都是对缩进敏感的，一般推荐使用空格作为缩进
+符号，如果使用了制表符（&amp;lt;Tab&amp;gt;），reST引擎会在处理前将其替换为8个空格，其余的空格（分
+页符，纵向制表符等）都替换成1个空格。&lt;/p&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;空行&lt;/h3&gt;
+&lt;p&gt;空行主要用于分隔不同的文档元素。除非在原文输出块中，多个连续的空行将被当作一个空行对
+待。当可以明确指示一个文档元素结束时，空行可以省略。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;缩进&lt;/h3&gt;
+&lt;p&gt;用于指示一下内容：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;块引用&lt;/li&gt;
+&lt;li&gt;定义列表中的定义&lt;/li&gt;
+&lt;li&gt;当列表中某一项有多行时，第二行开始要缩进&lt;/li&gt;
+&lt;li&gt;原文输出块&lt;/li&gt;
+&lt;li&gt;显示标记的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缩进规则如下：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;同一个文档元素的缩进必须相同，即必须左对齐&lt;/li&gt;
+&lt;li&gt;如果下一行内容的缩进比当前行的缩进少，则标识当前行所在的文档元素结束&lt;/li&gt;
+&lt;li&gt;当文档元素的结构由符号开始，并有多行内容时，第二行开始缩进要与第一行
+的文字左对齐&lt;/li&gt;
+&lt;li&gt;当结构使用复杂标记（标记中可能出现任意字符）时，第二行的缩进量可以自
+行决定，但第三行开始必须与第二行左对齐&lt;/li&gt;
+&lt;li&gt;缩进可以嵌套，嵌套时将会产生更复杂的文档结构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;3.转义机制&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;*&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;`&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;``&lt;/tt&gt; 等许多ASCII字符作为标记使用，但他们在普通的文字表述
+时也同样有其意义，因此reST引入转义机制，用于标识将特殊的标记字符作为普通
+字符看待。和许多其他领域一样，在reST中使用反斜杠(&lt;tt class="docutils literal"&gt;\&lt;/tt&gt;)用于转义。&lt;/p&gt;
+&lt;p&gt;除空格外，其余任何紧跟在反斜杠后的字符都将被转义，转义结果为紧跟反斜杠的
+字符本身，使其作为普通文本对待，而不会作为标记的开始或结束。对空格的转义
+结果是将空格移除，也解释一个空的字符串。&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;当在程序中用reST格式写注释时，可能需要对反斜杠进行二次转义。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="reStructuredText"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Pelican(三) —— 基本使用</title><link href="//www.inpool.xyz/tools/pelican-usage.html" rel="alternate"></link><published>2016-05-16T19:21:00+08:00</published><updated>2016-05-16T19:21:00+08:00</updated><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-16:tools/pelican-usage.html</id><summary type="html">&lt;p&gt;前面两篇文章简单介绍了以下pelican的基本内容，网上已经有很多关于使用pelican的文
 章，我刚开始使用pelican的时候，也是看那些文章过来的，我觉得有些地方讲的不是很清
 楚，所以还是决定写一下他的基本使用。&lt;/p&gt;
 &lt;p&gt;对于每一个步骤，我先将相关的命令打出来，然后说明这个命令干了什么，以及有什么需
@@ -106,7 +222,7 @@ $ pelican-quickstart
 支持的配置项，可以通过左下角选择对应的版本查看，当前环境安装的pelican版本，使用
 &lt;tt class="docutils literal"&gt;pelican &lt;span class="pre"&gt;--version&lt;/span&gt;&lt;/tt&gt; 查看。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="python"></category><category term="reStructuredText"></category></entry><entry><title>python包管理系统——pip的设置</title><link href="//www.inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
+</summary><category term="pelican"></category><category term="python"></category><category term="reStructuredText"></category></entry><entry><title>python包管理系统——pip的设置</title><link href="//www.inpool.xyz/tools/configure-pip.html" rel="alternate"></link><published>2016-05-11T15:00:00+08:00</published><updated>2016-05-11T15:00:00+08:00</updated><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-11:tools/configure-pip.html</id><summary type="html">&lt;p&gt;pip是 &lt;a class="reference external" href="https://www.pypa.io/en/latest/"&gt;pypa&lt;/a&gt; 推荐的python包安装工具，作为包管理工具，就像debian的apt一样，应该都
 可以自定义安装源，以加快包的下载速度。在pip中，我们也可以自定义她的安装源。&lt;/p&gt;
 &lt;p&gt;要定义pip的安装源，首先需要找到她的配置文件，pip配置文件的位置，在6.0版本 &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;
 以后和6.0版本以前有一些区别，支持的范围也有一定的区别。&lt;/p&gt;
@@ -239,7 +355,7 @@ $ pip install pelican
 $ pip help [sub-command]
 &lt;/pre&gt;
 &lt;/div&gt;
-</summary><category term="pip"></category><category term="python"></category><category term="package management"></category></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="//www.inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+</summary><category term="pip"></category><category term="python"></category><category term="package management"></category></entry><entry><title>Pelican(二) —— 文件元数据</title><link href="//www.inpool.xyz/tools/pelican-meta-data.html" rel="alternate"></link><published>2016-05-03T20:51:00+08:00</published><updated>2016-05-03T20:51:00+08:00</updated><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-03:tools/pelican-meta-data.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;基础&lt;/h2&gt;
 &lt;p&gt;元数据是除了文章内容以外，对文章属性进行额外描述的数据，一般情况下，Pelican支持以下元数据：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -332,7 +448,7 @@ $ pip help [sub-command]
 信息，pelican会自动获取到data为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'2016-05-03'&lt;/span&gt;&lt;/tt&gt; ，而slug为 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;'pelican-meta-data'&lt;/span&gt;&lt;/tt&gt; 。&lt;/p&gt;
 &lt;p&gt;采用这种方式时， &lt;tt class="docutils literal"&gt;FILENAME_METADATA&lt;/tt&gt; 的设置方法为正则表达式，需要一定的学习。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="blog"></category><category term="reStructuredText"></category></entry><entry><title>Pelican(一) —— 基本理解</title><link href="//www.inpool.xyz/tools/pelican-basic.html" rel="alternate"></link><published>2016-05-03T19:38:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-03:tools/pelican-basic.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
+</summary><category term="pelican"></category><category term="blog"></category><category term="reStructuredText"></category></entry><entry><title>Pelican(一) —— 基本理解</title><link href="//www.inpool.xyz/tools/pelican-basic.html" rel="alternate"></link><published>2016-05-03T19:38:00+08:00</published><updated>2016-05-03T19:38:00+08:00</updated><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2016-05-03:tools/pelican-basic.html</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;Pelican有什么用&lt;/h2&gt;
 &lt;p&gt;Pelican是使用python语言开发的一个静态博客生成工具。默认支持reStructureText和HTML，也可以轻松支持Markdown。&lt;/p&gt;
 &lt;p&gt;我们平时写博客，一般是通过在博客网站注册一个帐号，然后就可以在里面写博客了。还有一种情况，就是自己在虚拟主机、
@@ -426,7 +542,7 @@ drwxr-xr-x 1 inpool 197121    0 五月  3 15:11 output/
 遍历所有的文章，在元数据中查询分类、标签和作者，并自动创建相应元素和静态页面。对于归档，pelican按照
 文章的标识的时间，自动编排出来。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="blog"></category></entry><entry><title>如何管理Sublime Text的插件</title><link href="//www.inpool.xyz/tools/sublime-text-plugin.html" rel="alternate"></link><published>2015-05-20T18:37:00+08:00</published><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2015-05-20:tools/sublime-text-plugin.html</id><summary type="html">&lt;p&gt;sublime text的插件一般通过Package Control来管理，而Package Control本身也是一个插件：&lt;/p&gt;
+</summary><category term="pelican"></category><category term="blog"></category></entry><entry><title>如何管理Sublime Text的插件</title><link href="//www.inpool.xyz/tools/sublime-text-plugin.html" rel="alternate"></link><published>2015-05-20T18:37:00+08:00</published><updated>2015-05-20T18:37:00+08:00</updated><author><name>Inpool</name></author><id>tag:www.inpool.xyz,2015-05-20:tools/sublime-text-plugin.html</id><summary type="html">&lt;p&gt;sublime text的插件一般通过Package Control来管理，而Package Control本身也是一个插件：&lt;/p&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;安装Package Control。使用 Ctrl+` 打开控制台。如果有其他软件的热键与这个热键
 冲突的话，点击左下角的图标，弹出菜单中选择Console。然后在控制台中粘贴以下代码。&lt;/p&gt;

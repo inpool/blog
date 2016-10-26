@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.inpool.xyz/</loc>
-<lastmod>2016-05-20T18:59:47-00:00</lastmod>
+<lastmod>2016-10-26T11:49:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
 <loc>http://www.inpool.xyz/archives.html</loc>
-<lastmod>2016-05-20T18:59:47-00:00</lastmod>
+<lastmod>2016-10-26T11:49:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
 <loc>http://www.inpool.xyz/tags.html</loc>
-<lastmod>2016-05-20T18:59:47-00:00</lastmod>
+<lastmod>2016-10-26T11:49:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
 <loc>http://www.inpool.xyz/categories.html</loc>
-<lastmod>2016-05-20T18:59:47-00:00</lastmod>
+<lastmod>2016-10-26T11:49:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>http://www.inpool.xyz/tools/starting-restructuredtext.html</loc>
+<lastmod>2016-10-26T11:48:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1</priority>
 </url>
 
 <url>
@@ -68,28 +75,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.inpool.xyz/category/tools.html</loc>
-<lastmod>2016-05-16T19:21:00+08:06</lastmod>
+<lastmod>2016-10-26T11:48:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
 <loc>http://www.inpool.xyz/tag/pelican.html</loc>
-<lastmod>2016-05-16T19:21:00+08:06</lastmod>
+<lastmod>2016-10-26T11:48:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
-<loc>http://www.inpool.xyz/tag/restructuredtext.html</loc>
-<lastmod>2016-05-16T19:21:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.3</priority>
-</url>
-
-<url>
-<loc>http://www.inpool.xyz/tag/python.html</loc>
-<lastmod>2016-05-16T19:21:00+08:06</lastmod>
+<loc>http://www.inpool.xyz/tag/package-management.html</loc>
+<lastmod>2016-05-11T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
@@ -97,6 +97,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://www.inpool.xyz/tag/plugin.html</loc>
 <lastmod>2015-05-20T18:37:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.3</priority>
+</url>
+
+<url>
+<loc>http://www.inpool.xyz/tag/python.html</loc>
+<lastmod>2016-10-26T11:48:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.3</priority>
+</url>
+
+<url>
+<loc>http://www.inpool.xyz/tag/restructuredtext.html</loc>
+<lastmod>2016-10-26T11:48:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
@@ -116,15 +130,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://www.inpool.xyz/tag/package-management.html</loc>
-<lastmod>2016-05-11T15:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.3</priority>
-</url>
-
-<url>
 <loc>http://www.inpool.xyz/author/inpool.html</loc>
-<lastmod>2016-05-16T19:21:00+08:06</lastmod>
+<lastmod>2016-10-26T11:48:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.3</priority>
 </url>
